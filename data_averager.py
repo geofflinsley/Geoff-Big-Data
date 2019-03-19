@@ -66,7 +66,7 @@ def dataParser(usgs_geo_data):
     just_data = usgs_geo_data[1:]
     for row in just_data:
         print row
-        data_row = row.split(' ')
+        data_row = row[0].split(' ')
         dst_list.append(data_row[dst_pos])
         hon_list.append(data_row[hon_pos])
         sjg_list.append(data_row[sjg_pos])
