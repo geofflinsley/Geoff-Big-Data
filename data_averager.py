@@ -24,6 +24,7 @@ def dataGrabber():
     geo_dataset = []
     
     # If an argument is not provided with the script, then print help text.
+    
     if len(argv) != 2:
         print(error_message)
         
