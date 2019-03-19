@@ -9,8 +9,9 @@ error_message = ('Please provide full filepath to USGS Geomagnetism file as an '
                  'argument to be parsed.\n Example: "python data_averager.py '
               '/path/to/file"')
               
-              
-# average all the Dst, the HON and the SJG columns only
+# The objective is to average all the Dst, the HON and the SJG columns only.
+# The below variables are positional coordinates of this data we're interested
+# in from the dataset provided.
 
 dst_pos = 7
 hon_pos = 10
@@ -58,6 +59,16 @@ def dataGrabber():
             
 
 def dataParser(usgs_geo_data):
+    """ Takes a list of lists and finds the average of a subset of those lists.
+    
+    This function removes the header row which isn't data, and splits the sets
+    of data we're interested in into each set into its own list. It then
+    calculates the average of each set of data and prints these averages to
+    the terminal window.
+    
+    Arguments: 
+        usgs_geo_data - A list of lists.
+    """
     
     dst_list = []
     hon_list = []
@@ -77,6 +88,7 @@ def dataParser(usgs_geo_data):
     print('DST average: %s' % dst_average)
     print('HON average: %s' % hon_average)
     print('SJG average: %s' % sjg_average)    
+
 
 def main():
     usgs_data_list = dataGrabber()
