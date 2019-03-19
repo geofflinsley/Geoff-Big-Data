@@ -40,9 +40,14 @@ def dataGrabber():
                     text_row = ' '.join(row)
                     clean_row = re.sub(' +', ' ',text_row)
                     geo_dataset.append([clean_row])
-                return geo_dataset
         else:
             print(error_message)
+                
+    if geo_dataset[0] == ['Year Mon Day Hr DOY from start Fractional DOY '
+                          'Fractional year Dst HER KAK HON SJG sigma']:
+        return geo_dataset
+    else:
+        print(error_message)
             
 
 def dataParser(usgs_geo_data):
