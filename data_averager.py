@@ -39,7 +39,7 @@ def dataGrabber():
                 for row in geo_reader:
                     text_row = ' '.join(row)
                     clean_row = re.sub(' +', ' ',text_row)
-                    geo_dataset.append(clean_row)
+                    geo_dataset.append([clean_row])
                 return geo_dataset
         else:
             print(error_message)
