@@ -8,7 +8,13 @@ import re
 error_message = ('Please provide full filepath to USGS Geomagnetism file as an '
                  'argument to be parsed.\n Example: "python data_averager.py '
               '/path/to/file"')
+              
+              
+# average all the Dst, the HON and the SJG columns only
 
+dst_pos = 7
+hon_pos = 10
+sjg_pos = 11
 
 def dataGrabber():
     """ This function ensures the file exists, and it is valid.
@@ -45,15 +51,31 @@ def dataGrabber():
                 
     if geo_dataset[0] == ['Year Mon Day Hr DOY from start Fractional DOY '
                           'Fractional year Dst HER KAK HON SJG sigma']:
-        print 'Valid dataset detected. Continuing...'
+        print('Valid dataset detected. Continuing...')
         return geo_dataset
     else:
         print(error_message)
             
 
 def dataParser(usgs_geo_data):
-    print usgs_geo_data
     
+    dst_list = []
+    hon_list = []
+    sjg_list = []
+    
+    just_data = usgs_geo_data[1:]
+    for row in just_data:
+        dst_list.append(row[dst_pos])
+        hon_list.append(row[hon_pos])
+        sjg_list.append(row[sjg_pos])
+        
+    dst_average = sum(dst_list) / len(dst_list)
+    hon_average = sum(hon_list) / len(hon_list)
+    sjg_average = sum(sjg_list) / len(sjg_list)
+    
+    print('DST average: %s' % dst_average)
+    print('HON average: %s' % hon_average)
+    print('SJG average: %s' % sjg_average)    
 
 def main():
     usgs_data_list = dataGrabber()
