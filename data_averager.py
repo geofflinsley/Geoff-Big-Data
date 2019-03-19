@@ -71,9 +71,9 @@ def dataParser(usgs_geo_data):
         hon_list.append(float(data_row[hon_pos]))
         sjg_list.append(float(data_row[sjg_pos]))
         
-    dst_average = sum(dst_list)) / len(dst_list)
-    hon_average = sum(hon_list)) / len(hon_list)
-    sjg_average = sum(sjg_list)) / len(sjg_list)
+    dst_average = sum(dst_list) / len(dst_list)
+    hon_average = sum(hon_list) / len(hon_list)
+    sjg_average = sum(sjg_list) / len(sjg_list)
     
     print('DST average: %s' % dst_average)
     print('HON average: %s' % hon_average)
