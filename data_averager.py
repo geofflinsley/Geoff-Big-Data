@@ -65,9 +65,10 @@ def dataParser(usgs_geo_data):
     
     just_data = usgs_geo_data[1:]
     for row in just_data:
-        dst_list.append(row[dst_pos])
-        hon_list.append(row[hon_pos])
-        sjg_list.append(row[sjg_pos])
+        data_row = row.split(' ')
+        dst_list.append(data_row[dst_pos])
+        hon_list.append(data_row[hon_pos])
+        sjg_list.append(data_row[sjg_pos])
         
     dst_average = sum(dst_list) / len(dst_list)
     hon_average = sum(hon_list) / len(hon_list)
