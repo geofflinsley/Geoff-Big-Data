@@ -37,7 +37,8 @@ def dataGrabber():
             with open(file_path, 'r') as geo_data:
                 geo_reader = csv.reader(geo_data, delimiter=' ')
                 for row in geo_reader:
-                    clean_row = re.sub(' +', ' ',row.join(' '))
+                    text_row = ' '.join(row)
+                    clean_row = re.sub(' +', ' ',text_row)
                     geo_dataset.append(clean_row)
                 return geo_dataset
         else:
