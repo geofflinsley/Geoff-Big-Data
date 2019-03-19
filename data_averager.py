@@ -10,6 +10,8 @@ error_message = ('Please provide full filepath to USGS Geomagnetism file as an '
 
 
 def dataGrabber():
+    geo_dataset = []
+    
     if len(argv) != 2:
         print(error_message)
         print 
