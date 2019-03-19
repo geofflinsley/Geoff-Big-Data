@@ -4,8 +4,8 @@ from sys import argv
 import csv
 from os import path
 
-error_message = ('Please provide full filepath to USGS Geomagnetism file as an 
-              'argument to be parsed.\n Example: "python data_averager.py 
+error_message = ('Please provide full filepath to USGS Geomagnetism file as an '
+                 'argument to be parsed.\n Example: "python data_averager.py '
               '/path/to/file"')
 
 
