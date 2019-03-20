@@ -5,6 +5,7 @@ import csv
 from os import path
 import re
 
+
 error_message = ('Please provide full filepath to USGS Geomagnetism file as an '
                  'argument to be parsed.\n Example: "python data_averager.py '
               '/path/to/file"')
@@ -60,21 +61,22 @@ def dataGrabber():
             return geo_dataset
         else:
             print(error_message)
-            
+
 
 def dataParser(usgs_geo_data):
     """ Takes a list of lists and finds the average of a subset of those lists.
-    
+
     This function removes the header row which isn't data, and splits the sets
     of data we're interested in into each set into its own list. It then
     calculates the average (and other stats) of each set of data and prints 
     these averages to the terminal window.
-    
+
     Arguments: 
         usgs_geo_data - A list of lists.
     """
-    
+
     # All the lists used to sort nd calculate data.
+    
     dst_list = []
     hon_list = []
     sjg_list = []
@@ -106,7 +108,6 @@ def dataParser(usgs_geo_data):
     dst_average = sum(dst_list) / len(dst_list)
     hon_average = sum(hon_list) / len(hon_list)
     sjg_average = sum(sjg_list) / len(sjg_list)
-    
  
     print('\nDST average: %s' % dst_average)
     print('HON average: %s' % hon_average)
@@ -119,7 +120,6 @@ def dataParser(usgs_geo_data):
     print('\nDST min: %s' % min(dst_list))
     print('HON min: %s' % min(hon_list))
     print('SJG min: %s' % min(sjg_list)) 
-    
     
     print('\nBad DST value count: %s' % len(bad_dst))
     print('Bad HON value count: %s' % len(bad_hon))
