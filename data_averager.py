@@ -85,6 +85,12 @@ def dataParser(usgs_geo_data):
     hon_average = sum(hon_list) / len(hon_list)
     sjg_average = sum(sjg_list) / len(sjg_list)
     
+    print('Here are some sample averages - DST, HON, then SJG')
+    
+    print dst_average[:5]
+    print hon_average[:5]
+    print sjg_average[:5]
+    
     print('DST average: %s' % dst_average)
     print('HON average: %s' % hon_average)
     print('SJG average: %s' % sjg_average)    
