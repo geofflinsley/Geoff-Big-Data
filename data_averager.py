@@ -49,15 +49,15 @@ def dataGrabber():
                     geo_dataset.append([clean_row])
         else:
             print(error_message)
-    if geo_dataset:
+    if len(geo_dataset) < 1:
+        print(error_message)
+    else:
         if geo_dataset[0] == ['Year Mon Day Hr DOY from start Fractional DOY '
                               'Fractional year Dst HER KAK HON SJG sigma']:
             print('Valid dataset detected. Continuing...')
             return geo_dataset
         else:
             print(error_message)
-    else:
-        print(error_message)
             
 
 def dataParser(usgs_geo_data):
