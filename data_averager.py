@@ -104,7 +104,7 @@ def dataParser(usgs_geo_data):
     sjg_average = sum(sjg_list) / len(sjg_list)
     
  
-    print('DST average: %s' % dst_average)
+    print('\nDST average: %s' % dst_average)
     print('HON average: %s' % hon_average)
     print('SJG average: %s' % sjg_average) 
 
@@ -120,6 +120,10 @@ def dataParser(usgs_geo_data):
     print('\nBad DST value count: %s' % len(bad_dst))
     print('Bad HON value count: %s' % len(bad_hon))
     print('Bad SJG value count: %s' % len(bad_sjg))
+    
+    print('\nTotal DST value count: %s' % len(dst_list))
+    print('Total HON value count: %s' % len(hon_list))
+    print('Total SJG value count: %s' % len(sjg_list))
 
 
 def main():
