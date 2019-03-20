@@ -10,5 +10,5 @@ def test_dataGrabberFail():
     for test in fail_tests:
         assert data_averager.dataGrabber(test) == (
             'Please provide full filepath to USGS Geomagnetism file as an '
-            'argument to be parsed.\n Example: "python data_averager.py 
+            'argument to be parsed.\n Example: "python data_averager.py ' 
             '/path/to/file"')
