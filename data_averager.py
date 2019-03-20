@@ -114,7 +114,7 @@ def dataParser(usgs_geo_data):
     
     print('DST min: %s' % min(dst_list))
     print('HON min: %s' % min(hon_list))
-    print('SJG min: %s' % mn(sjg_list)) 
+    print('SJG min: %s' % min(sjg_list)) 
     
     
     print('\nBad DST value count: %s' % len(bad_dst))
