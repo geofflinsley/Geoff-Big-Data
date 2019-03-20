@@ -20,6 +20,7 @@ dst_pos = 7
 hon_pos = 10
 sjg_pos = 11
 
+
 def dataGrabber():
     """ This function ensures the file exists, and it is valid.
     
