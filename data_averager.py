@@ -75,27 +75,42 @@ def dataParser(usgs_geo_data):
     dst_list = []
     hon_list = []
     sjg_list = []
+    bad_dst = []
+    bad_hon = []
+    bad_sjg = []
     
     just_data = usgs_geo_data[1:]
     for row in just_data:
         data_row = row[0].split(' ')
-        dst_list.append(float(data_row[dst_pos]))
-        hon_list.append(float(data_row[hon_pos]))
-        sjg_list.append(float(data_row[sjg_pos]))
+        dst_value = float(data_row[dst_pos])
+        hon_value = float(data_row[hon_pos])
+        sjg_value = float(data_row[sjg_pos])
+        
+        if dst_value != -9999:
+            dst_list.append(dst_value)
+        else:
+            bad_dst.append(dst_value)
+        if hon_value != -9999:
+            hon_list.append(hon_value)
+        else:
+            bad_hon.append(hon_value)
+        if sjg_value != -9999:
+            sjg_list.append(sjg_value)
+        else:
+            bad_sjg.append(sjg_value)
         
     dst_average = sum(dst_list) / len(dst_list)
     hon_average = sum(hon_list) / len(hon_list)
     sjg_average = sum(sjg_list) / len(sjg_list)
     
-    print('Here are some sample averages - DST, HON, then SJG')
-    
-    print dst_list[:5]
-    print hon_list[:5]
-    print sjg_list[:5]
-    
+ 
     print('DST average: %s' % dst_average)
     print('HON average: %s' % hon_average)
-    print('SJG average: %s' % sjg_average)    
+    print('SJG average: %s' % sjg_average) 
+    
+    print('\nBad DST value count: %s' % len(bad_dst))
+    print('Bad HON value count: %s' % len(bad_hon))
+    print('Bad SJG value count: %s' % len(bad_sjg))
 
 
 def main():
