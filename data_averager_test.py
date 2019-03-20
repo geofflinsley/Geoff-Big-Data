@@ -11,3 +11,13 @@ def test_dataGrabberFail():
     with patch.object(sys, 'argv', fail_tests):
         averager_result = data_averager.dataGrabber()
         assert averager_result == None
+
+
+def test_dataGrabberPass():
+    
+    pass_test = '/home/apesch/geoff_sample_data.txt'
+    
+    with patch.object(sys, 'argv', pass_test):
+        averager_result = data_averager.dataGrabber()
+        assert type(averager_result) == list
+        assert len(averager_result) > 1
