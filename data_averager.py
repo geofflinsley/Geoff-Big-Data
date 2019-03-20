@@ -12,6 +12,8 @@ error_message = ('Please provide full filepath to USGS Geomagnetism file as an '
 # The objective is to average all the Dst, the HON and the SJG columns only.
 # The below variables are positional coordinates of this data we're interested
 # in from the dataset provided.
+#
+# These values can be updated to calculate stats of other columns if desired.
 
 dst_pos = 7
 hon_pos = 10
@@ -65,13 +67,14 @@ def dataParser(usgs_geo_data):
     
     This function removes the header row which isn't data, and splits the sets
     of data we're interested in into each set into its own list. It then
-    calculates the average of each set of data and prints these averages to
-    the terminal window.
+    calculates the average (and other stats) of each set of data and prints 
+    these averages to the terminal window.
     
     Arguments: 
         usgs_geo_data - A list of lists.
     """
     
+    # All the lists used to sort nd calculate data.
     dst_list = []
     hon_list = []
     sjg_list = []
@@ -79,7 +82,8 @@ def dataParser(usgs_geo_data):
     bad_hon = []
     bad_sjg = []
     
-    just_data = usgs_geo_data[1:]
+    just_data = usgs_geo_data[1:] # Remove header, leaving just data.
+    
     for row in just_data:
         data_row = row[0].split(' ')
         dst_value = float(data_row[dst_pos])
@@ -127,6 +131,11 @@ def dataParser(usgs_geo_data):
 
 
 def main():
+    """ Execute other functions.
+    
+    If dataGrabber returns something, execute dataParser. Otherwise, stop.
+    """
+    
     usgs_data_list = dataGrabber()
     if usgs_data_list:
         dataParser(usgs_data_list)
