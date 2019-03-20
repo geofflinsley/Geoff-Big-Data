@@ -2,7 +2,7 @@
 
 import pytest
 import data_averager
-from mock import patch
+from unittest.mock import patch
 
 def test_dataGrabberFail():
 
