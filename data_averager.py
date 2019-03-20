@@ -107,6 +107,15 @@ def dataParser(usgs_geo_data):
     print('DST average: %s' % dst_average)
     print('HON average: %s' % hon_average)
     print('SJG average: %s' % sjg_average) 
+
+    print('DST max: %s' % max(dst_list))
+    print('HON max: %s' % max(hon_list))
+    print('SJG max: %s' % max(sjg_list)) 
+    
+    print('DST min: %s' % min(dst_list))
+    print('HON min: %s' % min(hon_list))
+    print('SJG min: %s' % mn(sjg_list)) 
+    
     
     print('\nBad DST value count: %s' % len(bad_dst))
     print('Bad HON value count: %s' % len(bad_hon))
