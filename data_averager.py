@@ -86,15 +86,15 @@ def dataParser(usgs_geo_data):
         hon_value = float(data_row[hon_pos])
         sjg_value = float(data_row[sjg_pos])
         
-        if dst_value != 9999.0:
+        if dst_value != 99999.0:
             dst_list.append(dst_value)
         else:
             bad_dst.append(dst_value)
-        if hon_value != 9999.0:
+        if hon_value != 99999.0:
             hon_list.append(hon_value)
         else:
             bad_hon.append(hon_value)
-        if sjg_value != 9999.0:
+        if sjg_value != 99999.0:
             sjg_list.append(sjg_value)
         else:
             bad_sjg.append(sjg_value)
